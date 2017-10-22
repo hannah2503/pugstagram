@@ -1,0 +1,26 @@
+<% if (locals.message) { %>
+  <p><%= message %></p>
+<% } %>
+<form method="POST" action="/register">
+  <div>
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name">
+  </div>
+  <div>
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username">
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input type="text" name="email" id="email">
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password">
+  </div>
+  <div>
+    <label for="passwordConfirmation">Password Confirmation</label>
+    <input type="password" name="passwordConfirmation" id="passwordConfirmation">
+  </div>
+  <button class="button">Register</button>
+</form>
