@@ -11,15 +11,9 @@ function registrationCreate(req, res){
   User
     .create(req.body)
     .then((user) => {
-      req.flash('info', `Thanks for registering, ${user.username}! Please login`);
-      res.redirect('/login');
+      res.redirect('/');
     })
-    .catch((err) => {
-      if(err.name === 'ValidationError') {
-        return res.status(400).render('registrations/new', { message: 'Details do not match' });
-      }
-      res.status(500).end();
-    });
+    .catch((err) => res.status(500).end());
 }
 
 // then export the new user
