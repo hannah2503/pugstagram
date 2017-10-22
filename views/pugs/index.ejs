@@ -1,1 +1,8 @@
 <h1>PUGS INDEX</h1>
+<% pugs.forEach((pug) => { %>
+  <a href="/pug/<%= pug.id %>"><h2>
+  <%= pug.pugName %></h2></a>
+  <p><%= pug.pugAge %><br>
+  <%= pug.pugDescription %><br>
+  created by: </p>
+<% }) %>

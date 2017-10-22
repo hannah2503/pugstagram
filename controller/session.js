@@ -13,12 +13,18 @@ function sessionsCreate(req, res) {
       }
 
       req.session.userId = user.id;
+      console.log(req.session.userId);
 
       return res.redirect('/');
     });
 }
 
+function sessionsDelete(req, res) {
+  return req.session.regenerate(() => res.redirect('/'));
+}
+
 module.exports = {
   new: sessionsNew,
-  create: sessionsCreate
+  create: sessionsCreate,
+  delete: sessionsDelete
 };

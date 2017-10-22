@@ -13,12 +13,12 @@ const User = require('./models/user');
 
 const app = express();
 
+//set up database
+mongoose.connect(dbURI, { useMongoClient: true });
+
 //settings
 app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
-
-//set up database
-mongoose.connect(dbURI, { useMongoClient: true });
 
 //middleware
 app.use(morgan('dev'));
@@ -32,11 +32,13 @@ app.use(methodOverride(function (req) {
     return method;
   }
 }));
+
 app.use(session({
   secret: secret,
   resave: false,
   saveUninitialized: false
 }));
+
 app.use((req, res, next) => {
   console.log(req.session.userId);
   if (!req.session.userId) return next();
@@ -46,7 +48,6 @@ app.use((req, res, next) => {
     .then((user) => {
       if(!user) {
         return req.session.regenerate(() => {
-          // req.flash('danger', 'You must be logged in.');
           res.redirect('/');
         });
       }
@@ -57,6 +58,7 @@ app.use((req, res, next) => {
       next();
     });
 });
+
 app.use(router);
 
 //listen to port

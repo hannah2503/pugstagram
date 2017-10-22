@@ -11,9 +11,13 @@ function registrationCreate(req, res){
   User
     .create(req.body)
     .then((user) => {
-      res.redirect('/');
+      console.log(user);
+      res.redirect('/login');
     })
-    .catch((err) => res.status(500).end());
+    .catch((err) =>  {
+      console.log(err);
+      res.status(500).end();
+    });
 }
 
 // then export the new user
