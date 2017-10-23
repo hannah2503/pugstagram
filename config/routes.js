@@ -4,7 +4,7 @@ const router  = express.Router();
 const statics = require('../controller/statics');
 const registration = require('../controller/registrations');
 const session = require('../controller/sessions');
-const Pug = require('../models/pug');
+// const Pug = require('../models/pug');
 const pugs = require('../controller/pugs');
 
 //Secure route function
@@ -23,22 +23,22 @@ function secureRoute(req, res, next) {
 router.route('/')
   .get(statics.home);
 
-// index of pugs
-router.get('/pugs/index', (req, res) => {
-  Pug
-    .find()
-    .exec()
-    .then((pugs) => {
-      res.render('pugs/index', { pugs });
-    });
-});
+// // index of pugs
+// router.get('/pugs/index', (req, res) => {
+//   Pug
+//     .find()
+//     .exec()
+//     .then((pugs) => {
+//       res.render('pugs/index', { pugs });
+//     });
+// });
 
-//all the pugs
+// all the pugs
 router.route('/pugs')
   .get(pugs.index)
-  .post(secureRoute, pugs.create);
+  .post(pugs.create);
 
-// new pugs
+// add new pugs
 router.route('/pugs/new')
   .get(secureRoute, pugs.new);
 
@@ -46,7 +46,7 @@ router.route('/pugs/new')
 router.route('/pugs/:id')
   .get(pugs.show)
   .put(secureRoute, pugs.update)
-  .delete(secureRoute, pugs.delete);
+  .delete(secureRoute,pugs.delete);
 
 //edit pugs
 router.route('/pugs/:id/edit')

@@ -21,19 +21,19 @@ function pugsNew(req, res) {
 function pugsCreate(req, res, next) {
   Pug
     .create(req.body)
-    .then(() => res.redirect('/pugs/index'))
+    .then((pug) => res.redirect('/pugs/index', { pug, costumes }))
     .catch(next);
 }
 
 function pugsShow(req, res, next) {
   Pug
     .findById(req.params.id)
+    .exec()
     .then((pug) => {
       if(!pug) return res.status(404).render('statics/404');
-      console.log(pug);
-      res.render('pugs/show');
+      res.render('pugs/show', { pug });
     })
-    .catch(next); //add error
+    .catch(next);
 }
 
 function pugsEdit(req, res, next) {
@@ -41,7 +41,7 @@ function pugsEdit(req, res, next) {
     .findById(req.params.id)
     .then((pug) => {
       if(!pug) return res.status(404).render('statics/404');
-      res.render('pugs/edit');
+      res.render('pugs/edit', { pug, costumes });
     })
     .catch(next);
 }
@@ -55,7 +55,6 @@ function pugsUpdate(req, res, next) {
       for(const field in req.body) {
         pug[field] = req.body[field];
       }
-
       return pug.save();
     })
     .then((pug) => res.redirect(`/pugs/${pug.id}`))

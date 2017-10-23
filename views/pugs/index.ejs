@@ -1,18 +1,12 @@
 <h1>PUGS INDEX</h1>
-<a href="/pugs/new">Add a Pug</a>
+<a href="/pugs/new">Add a Pug</a><br>
 
 <% pugs.forEach((pug) => { %>
   <img src="<%= pug.pugImages %>">
-  <a href="/pug/<%= pug.id %>"><h2><%= pug.pugName %></h2></a>
-  <p>Age: <%= pug.pugAge %></p><br>
-  <p>Costume: <%= pug.costumes %></p><br>
+  <a href="/pugs/<%= pug.id %>"><h2><%= pug.pugName %></h2></a>
+  <p>Age: <%= pug.pugAge %></p>
+  <p>Costume: <%= pug.costumes %></p>
   <p>Description: <%= pug.pugDescription %></p><br>
-
-  <a href="/pugs/<%= pug.id %>/edit">Edit</a><br>
-
-  <form method="POST" action="/pugs/<%= pug.id %>">
-  <input type="hidden" name="_method" value="DELETE">
-  <button>Delete</button>
-  </form>
+  <p>Created By: <%= pug.createdBy %><br>
 
 <% }) %>

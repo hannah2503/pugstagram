@@ -1,17 +1,9 @@
 <h1>SHOW THE PUGS </h1>
 
-<% pugs.forEach((pug) => { %>
-  <h1><%= pug.pugName %></h1>
-  <img src="<%= pug.id.pugImages %>">
-  <p>Age: <%= pug.pugAge %></p><br>
-  <p>Costume: <%= pug.costumes %></p><br>
+<h1><%= pug.pugName %></h1>
+
+  <img src="<%= pug.pugImages %>">
+  <p>Age: <%= pug.pugAge %></p>
+  <p>Costume: <%= pug.costumes %></p>
   <p>Description: <%= pug.pugDescription %></p><br>
-
-  <a href="/pugs/<%= pug.id %>/edit">Edit</a><br>
-
-  <form method="POST" action="/pugs/<%= pug.id %>">
-  <input type="hidden" name="_method" value="DELETE">
-  <button>Delete</button>
-  </form>
-
-<% }) %>
+  <p>Created By: <%= pug.createdBy %><br>

@@ -4,15 +4,15 @@
   <input type="hidden" name="_method" value="PUT">
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" name="pugName" id="name" placeholder="Pug Name" class="form-control" value="<%= pug.name %>">
+    <input type="text" name="pugName" id="name" placeholder="<%= pug.name %>" class="form-control" value="<%= pug.name %>">
   </div>
   <div class="form-group">
     <label for="pugAge">Age</label>
-    <input type="text" name="age" id="age" placeholder="Pug Age" class="form-control" value="<%= pug.pugAge %>">
+    <input type="text" name="age" id="age" placeholder="<%= pug.pugAge %>" class="form-control" value="<%= pug.pugAge %>">
   </div>
   <div class="form-group">
     <label for="description">Description</label>
-    <textarea name="pugDescription" id="description" placeholder="Pug Description" class="form-control"><%= pug.Pugdescription %></textarea>
+    <textarea name="pugDescription" id="description" placeholder="<%= pug.Pugdescription %>" class="form-control"><%= pug.Pugdescription %></textarea>
   </div>
   <div class="form-group">
     <label for="costume">Costume</label>
@@ -24,9 +24,9 @@
     </div>
     <div class="form-group">
       <label>Images</label>
-      <input type="text" name="pugImages" class="form-control" value="<%= pug.pugImages[0] %>">
+      <input type="text" name="pugImages" class="form-control" placeholder="<%= pug.pugImages %>" value="<%= pug.pugImages %>">
 
     </div>
 
-    <button>Add</button>
+    <button>Update</button>
   </form>
