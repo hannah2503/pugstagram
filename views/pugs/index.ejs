@@ -1,4 +1,9 @@
 <h1>PUGS INDEX</h1>
+
+<% if (locals.message) { %>
+  <p><%= message %></p>
+<% } %>
+
 <a href="/pugs/new">Add a Pug</a><br>
 
 <% pugs.forEach((pug) => { %>

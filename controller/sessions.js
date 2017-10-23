@@ -4,7 +4,7 @@ function sessionsNew(req, res) {
   res.render('sessions/new');
 }
 
-function sessionsCreate(req, res) {
+function sessionsCreate(req, res, next) {
   User
     .findOne({ email: req.body.email })
     .then((user) => {
@@ -12,8 +12,12 @@ function sessionsCreate(req, res) {
         return res.status(401).render('sessions/new', { message: 'Unrecognised credentials' });
       }
       req.session.userId = user.id;
-      return res.redirect('/pugs');
-    });
+      req.session.isAuthenticated = true;
+
+      req.user = user;
+      return res.redirect('/pugs').render('logged-in', {message: 'Hi ${user}!'});
+    })
+    .catch(next);
 }
 
 function sessionsDelete(req, res) {

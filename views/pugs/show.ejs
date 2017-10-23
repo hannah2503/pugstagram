@@ -1,5 +1,9 @@
 <h1>SHOW THE PUGS </h1>
 
+<% if (locals.message) { %>
+  <p><%= message %></p>
+<% } %>
+
 <h1><%= pug.pugName %></h1>
 
 <img src="<%= pug.pugImages %>">
