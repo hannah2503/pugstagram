@@ -8,5 +8,5 @@ function indexRoute(req, res) {
 }
 
 module.exports = {
-  index: indexRoute
+  home: indexRoute
 };

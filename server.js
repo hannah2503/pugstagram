@@ -9,6 +9,7 @@ mongoose.Promise = require('bluebird');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const flash = require('express-flash');
 const User = require('./models/user');
 
 const app = express();
@@ -32,13 +33,11 @@ app.use(methodOverride(function (req) {
     return method;
   }
 }));
-
 app.use(session({
   secret: secret,
   resave: false,
   saveUninitialized: false
 }));
-
 app.use((req, res, next) => {
   console.log(req.session.userId);
   if (!req.session.userId) return next();
@@ -48,18 +47,20 @@ app.use((req, res, next) => {
     .then((user) => {
       if(!user) {
         return req.session.regenerate(() => {
+          req.flash('danger', 'You must be logged in.');
           res.redirect('/');
         });
       }
-      // Re-assign the session id for good measure
       req.session.userId = user._id;
       res.locals.user = user;
       res.locals.isLoggedIn = true;
       next();
     });
 });
+app.use(flash());
 
 app.use(router);
+
 
 //listen to port
 app.listen(port, () => console.log(`Express is listening on port ${port}`));

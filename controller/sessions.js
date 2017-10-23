@@ -11,11 +11,8 @@ function sessionsCreate(req, res) {
       if(!user || !user.validatePassword(req.body.password)) {
         return res.status(401).render('sessions/new', { message: 'Unrecognised credentials' });
       }
-
       req.session.userId = user.id;
-      console.log(req.session.userId);
-
-      return res.redirect('/');
+      return res.redirect('/pugs/index');
     });
 }
 

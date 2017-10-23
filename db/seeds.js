@@ -29,12 +29,16 @@ User
 
     return Pug
       .create([{
+        pugImages: 'http://www.thepugdiary.com/wp-content/uploads/The_Batman_Pug_on_The_Pug_Diary_Feature.jpg',
         pugName: 'Frank',
         pugAge: '2',
+        costumes: 'Superhero',
         pugDescription: 'Frank likes to eat pork scratchings and dress as batman.'
       },{
+        pugImages: 'https://pbs.twimg.com/media/BZingt-IMAA5rpC.jpg',
         pugName: 'Peggy',
         pugAge: '4',
+        costumes: 'Princess',
         pugDescription: 'Peggy is a princess who likes to wear a crown'
       }])
       .then((pugs) => {
