@@ -23,16 +23,6 @@ function secureRoute(req, res, next) {
 router.route('/')
   .get(statics.home);
 
-// // index of pugs
-// router.get('/pugs/index', (req, res) => {
-//   Pug
-//     .find()
-//     .exec()
-//     .then((pugs) => {
-//       res.render('pugs/index', { pugs });
-//     });
-// });
-
 // all the pugs
 router.route('/pugs')
   .get(pugs.index)

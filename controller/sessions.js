@@ -12,7 +12,7 @@ function sessionsCreate(req, res) {
         return res.status(401).render('sessions/new', { message: 'Unrecognised credentials' });
       }
       req.session.userId = user.id;
-      return res.redirect('/pugs/index');
+      return res.redirect('/pugs');
     });
 }
 
