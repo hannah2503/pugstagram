@@ -1,0 +1,30 @@
+<h1>Add a Pug!</h1>
+
+<form method="POST" action="/pugs">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" name="pugName" id="name" placeholder="Name" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input type="text" name="pugAge" id="age" placeholder="Pug Age" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea name="pugDescription" id="description" placeholder="Describe your pug" class="form-control"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="costume">Costume</label>
+    <select name="costumes" id="costume" class="form-control select2">
+      <% costumes.forEach((costume) => { %>
+        <option <% if(costumes === costume) { %>selected<% } %>><%= costume %></option>
+      <% }) %>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Image</label>
+    <input type="text" name="pugImages" class="form-control">
+  </div>
+
+  <button>Add</button>
+</form>

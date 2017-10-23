@@ -15,25 +15,25 @@ function pugsIndex(req, res, next) {
 }
 
 function pugsNew(req, res) {
-  res.render('pugs/new', { costumes });
+  res.render('pugs/new', {costumes});
 }
 
 function pugsCreate(req, res, next) {
   Pug
     .create(req.body)
-    .then(() => res.redirect('/pugs'))
+    .then(() => res.redirect('/pugs/index'))
     .catch(next);
 }
 
 function pugsShow(req, res, next) {
   Pug
     .findById(req.params.id)
-    // .populate('director cast')
     .then((pug) => {
       if(!pug) return res.status(404).render('statics/404');
-      res.render('pugs/show', { pug });
+      console.log(pug);
+      res.render('pugs/show');
     })
-    .catch(next);
+    .catch(next); //add error
 }
 
 function pugsEdit(req, res, next) {
@@ -41,7 +41,7 @@ function pugsEdit(req, res, next) {
     .findById(req.params.id)
     .then((pug) => {
       if(!pug) return res.status(404).render('statics/404');
-      res.render('pugs/edit', { pug, costumes });
+      res.render('pugs/edit');
     })
     .catch(next);
 }

@@ -25,6 +25,7 @@ User
     passwordConfirmation: 'password'
   }])
   .then((users) => {
+    console.log(users);
     console.log(`${users.length} users created!`);
 
     return Pug
@@ -42,6 +43,7 @@ User
         pugDescription: 'Peggy is a princess who likes to wear a crown'
       }])
       .then((pugs) => {
+        console.log(pugs);
         console.log(`${pugs.length} pugs created!`);
       })
       .catch((err) => {

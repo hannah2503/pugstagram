@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const pugSchema = new mongoose.Schema({
-  pugImages: [{ type: String }],
+  pugImages: { type: String },
   pugName: String,
   pugAge: String,
   costumes: String,

@@ -1,9 +1,8 @@
-<h1>PUGS INDEX</h1>
-<a href="/pugs/new">Add a Pug</a>
+<h1>SHOW THE PUGS </h1>
 
 <% pugs.forEach((pug) => { %>
-  <img src="<%= pug.pugImages %>">
-  <a href="/pug/<%= pug.id %>"><h2><%= pug.pugName %></h2></a>
+  <h1><%= pug.pugName %></h1>
+  <img src="<%= pug.id.pugImages %>">
   <p>Age: <%= pug.pugAge %></p><br>
   <p>Costume: <%= pug.costumes %></p><br>
   <p>Description: <%= pug.pugDescription %></p><br>
