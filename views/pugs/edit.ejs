@@ -16,7 +16,7 @@
   </div>
   <div class="form-group">
     <label for="costume">Costume</label>
-    <select name="costumes" id="costume" class="form-control select2" placeholder="<%= costume %>">
+    <select name="costumes" id="costume" class="form-control select2" placeholder="<%= pug.costumes %>">
       <% costumes.forEach((costume) => { %>
         <option <% if(costumes === costume) { %>selected<% } %>><%= costume %></option>
         <% }) %>
@@ -25,8 +25,8 @@
     <div class="form-group">
       <label>Images</label>
       <input type="text" name="pugImages" class="form-control" placeholder="<%= pug.pugImages %>" value="<%= pug.pugImages %>">
-
     </div>
-
-    <button>Update</button>
+    <button class="float-left">Update</button>
   </form>
+
+<button class="float-left"><a href="/pugs">Back</button></a>

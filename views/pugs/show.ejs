@@ -8,21 +8,21 @@
           <p>Age: <%= pug.pugAge %></p>
           <p>Costume: <%= pug.costumes %></p>
           <p>Description: <%= pug.pugDescription %></p><br>
+        </div>
           <% if(locals.isAuthenticated) { %>
           <p>Created By: <%= pug.createdBy.username%><br>
-        </div>
 
-        <button class="float-left"><a href="/pugs/<%= pug.id %>/edit">Edit</a></button>
+          <form method="POST" action="/pugs/<%= pug.id %>/favorite" class="favorite"></form>
 
-        <form method="POST" action="/pugs/<%= pug.id %>">
+          <button class="float-left"><a href="/pugs/<%= pug.id %>/edit">Edit</a></button>
+
+          <form method="POST" action="/pugs/<%= pug.id %>">
           <input type="hidden" name="_method" value="DELETE">
           <button class="float-left">Delete</button>
-        </form>
-        <% } %>
-        <button class="float-left"><a href="/pugs">Back</button></a>
+          </form>
+
+          <button class="float-left"><a href="/pugs">Back</button></a>
       </div>
-
     </div>
-
   </div>
 </div>

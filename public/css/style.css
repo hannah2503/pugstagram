@@ -49,3 +49,12 @@ color: #000000;
 .card {
   background-color: rgba(244,243,238, 0.7);
 }
+
+.favorite button {
+  background: transparent;
+  border: none;
+  position: absolute;
+  color: red;
+  outline: none;
+  z-index: 5;
+}

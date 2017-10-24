@@ -4,25 +4,28 @@
       <% pugs.forEach((pug) => { %>
         <div class="card img-thumbnail " style="width: 22rem;">
           <img class="card-img-top" src="<%= pug.pugImages %>" alt="Pug In Costume">
-            <div class="card-body">
-              <a class="card-title" href="/pugs/<%= pug.id %>"><h4><%= pug.pugName %></h4></a>
-                <div class="card-text">
-                  <hr>
-                  <p><span class="bold text-uppercase">Created By:</span><%= pug.createdBy.username %></p>
-                </div>
+          <div class="card-body">
+            <a class="card-title" href="/pugs/<%= pug.id %>"><h4><%= pug.pugName %></h4></a>
+            <div class="card-text">
+            <hr>
+          </div>
 
-                  <% if(locals.isAuthenticated) { %>
-                    <button class="float-left"><a href="/pugs/<%= pug.id %>/edit">Edit</a></button>
+          <% if(locals.isAuthenticated) { %>
+          <p><span class="bold text-uppercase">Created By: </span><%= pug.createdBy.username %></p>
+            <form method="POST" action="/pugs/<%= pug.id %>/favorite" class="favorite">
+              <button>
+                <% if(locals.currentUser.hasFavorited(pug)) { %>
+                  <i class="fa fa-heart"></i>
+                <% } else { %>
+                  <i class="fa fa-heart-o"></i>
+                <% } %>
+              </button>
+              </form>
+            <% } %>
 
-                    <form method="POST" action="/pugs/<%= pug.id %>">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button class="float-left">Delete</button>
-                    </form>
-                  <% } %>
-            </div>
+          </div>
         </div>
-
       <% }) %>
-    </div>
-  </div>
-</div>
+            </div>
+          </div>
+        </div>

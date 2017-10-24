@@ -30,6 +30,10 @@ router.route('/pugs/:id')
 router.route('/pugs/:id/edit')
   .get(secureRoute, pugs.edit);
 
+// //favorite button
+// router.route('/pugs/:id/favorite')
+//   .post(secureRoute, pugs.favorite);
+
 //registration page
 router.route('/register')
   .get(registration.new)

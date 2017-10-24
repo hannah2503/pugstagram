@@ -70,6 +70,22 @@ function pugsUpdate(req, res, next) {
     .catch(next);
 }
 
+// This requires the user's favorites to be populated (see `lib/userAuth.js`)
+function pugsFavorite(req, res, next) {
+  // if the selected pug is not in the user's favorites
+  if(!req.currentUser.favorites.find(pug => pug.id === req.params.id)) {
+    // add the pug id to the user's favorites
+    req.currentUser.favorites.push(req.params.id);
+  } else {
+    // remove the pug from the user's favorites
+    req.currentUser.favorites = req.currentUser.favorites.filter(pug => pug.id !== req.params.id);
+  }
+  // save the user
+  req.currentUser.save()
+    .then(() => res.redirect('/pugs'))
+    .catch(next);
+}
+
 function pugsDelete(req, res, next) {
   Pug
     .findById(req.params.id)
@@ -88,5 +104,6 @@ module.exports = {
   show: pugsShow,
   edit: pugsEdit,
   update: pugsUpdate,
-  delete: pugsDelete
+  delete: pugsDelete,
+  favorite: pugsFavorite
 };
