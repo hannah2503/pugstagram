@@ -1,15 +1,19 @@
 //require dependencies
 const express = require('express');
-const morgan = require('morgan');
 const { port, dbURI, secret } = require('./config/environment');
 const router = require('./config/routes');
+
+const morgan = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 const bodyParser = require('body-parser');
+
 const methodOverride = require('method-override');
+
 const session = require('express-session');
 const flash = require('express-flash');
+
 const customResponses = require('./lib/customResponses');
 const authentication = require('./lib/authentication');
 const errorHandler = require('./lib/errorHandler');

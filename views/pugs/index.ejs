@@ -1,10 +1,6 @@
-<h1>PUGS INDEX</h1>
+<h1>All The Pugs</h1>
 
-<% if (locals.message) { %>
-  <p><%= message %></p>
-<% } %>
-
-<a href="/pugs/new">Add a Pug</a><br>
+<a href="/pugs/new">Add Pug</a><br>
 
 <% pugs.forEach((pug) => { %>
   <img src="<%= pug.pugImages %>">

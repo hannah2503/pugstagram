@@ -21,7 +21,7 @@ function pugsNew(req, res) {
 function pugsCreate(req, res, next) {
   Pug
     .create(req.body)
-    .then((pug) => res.redirect('/pugs', { pug, costumes }))
+    .then((pug) => res.redirect('pugs/show', { pug, costumes }))
     .catch(next);
 }
 

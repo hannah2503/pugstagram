@@ -1,9 +1,5 @@
 <h1>SHOW THE PUGS </h1>
 
-<% if (locals.message) { %>
-  <p><%= message %></p>
-<% } %>
-
 <h1><%= pug.pugName %></h1>
 
 <img src="<%= pug.pugImages %>">
@@ -14,9 +10,9 @@
 
 
 
-  <a href="/pugs/<%= pug.id %>/edit">Edit</a>
+<a href="/pugs/<%= pug.id %>/edit">Edit</a>
 
-  <form method="POST" action="/pugs/<%= pug.id %>">
+<form method="POST" action="/pugs/<%= pug.id %>">
     <input type="hidden" name="_method" value="DELETE">
     <button>Delete</button>
-  </form>
+</form>

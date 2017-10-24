@@ -4,20 +4,8 @@ const router  = express.Router();
 const statics = require('../controller/statics');
 const registration = require('../controller/registrations');
 const session = require('../controller/sessions');
-// const Pug = require('../models/pug');
 const pugs = require('../controller/pugs');
-
-//Secure route function
-function secureRoute(req, res, next) {
-  if (!req.session.userId) {
-    return req.session.regenerate(() => {
-      req.flash('danger', 'You must be logged in.');
-      res.redirect('/login');
-    });
-  }
-
-  return next();
-}
+const secureRoute = require('../lib/secureRoute');
 
 // A home route - welcome page
 router.route('/')
