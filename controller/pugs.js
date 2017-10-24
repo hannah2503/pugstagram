@@ -15,7 +15,6 @@ const costumes = [
 function pugsIndex(req, res, next) {
   Pug
     .find()
-    .populate('createdBy')
     .then((pugs) => res.render('pugs/index', { pugs }))
     .catch(next);
 }
@@ -38,8 +37,8 @@ function pugsShow(req, res, next) {
     .populate('createdBy')
     .exec()
     .then((pug) => {
-      if(!pug) return res.status(404).render('statics/404');
-      res.render('pugs/show', { pug });
+      if(!pug) return res.notFound();
+      return res.render('pugs/show', { pug });
     })
     .catch(next);
 }
@@ -48,8 +47,8 @@ function pugsEdit(req, res, next) {
   Pug
     .findById(req.params.id)
     .then((pug) => {
-      if(!pug) return res.status(404).render('statics/404');
-      res.render('pugs/edit', { pug, costumes });
+      if(!pug) return res.notFound();
+      return res.render('pugs/edit', { pug, costumes });
     })
     .catch(next);
 }
@@ -73,7 +72,7 @@ function pugsDelete(req, res, next) {
   Pug
     .findById(req.params.id)
     .then((pug) => {
-      if(!pug) return res.status(404).render('statics/404');
+      if(!pug) return res.notFound();
       return pug.remove();
     })
     .then(() => res.redirect('/pugs'))

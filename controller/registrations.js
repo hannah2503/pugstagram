@@ -7,17 +7,20 @@ function registrationNew (req , res) {
 }
 
 //write a function that creates the new user
-function registrationCreate(req, res){
+function registrationCreate(req, res, next){
   User
     .create(req.body)
     .then((user) => {
-      req.flash('info', `Thanks for registering, ${user.username}!`);
+      req.flash('success', `Thanks for registering, ${user.username}!`);
       req.session.userId = user._id;
       res.redirect('/login');
     })
-    .catch((err) =>  {
-      console.log(err);
-      res.status(500).end();
+    .catch((err) => {
+      if(err.name === 'ValidationError') {
+        req.flash('danger', 'Passwords do not match');
+        res.redirect('/register');
+      }
+      next(err);
     });
 }
 

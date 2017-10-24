@@ -1,17 +1,15 @@
 <div class="container-fluid">
   <div class="row">
-
     <div class="card pug img-thumbnail" style="width: 20rem;">
-
       <img class="card-img-top" src="<%= pug.pugImages %>" alt="Card image cap">
-
       <div class="card-body">
         <h1 class="card-title"><%= pug.pugName %></h1>
         <div class="card-text">
           <p>Age: <%= pug.pugAge %></p>
           <p>Costume: <%= pug.costumes %></p>
           <p>Description: <%= pug.pugDescription %></p><br>
-          <p>Created By: <%= pug.createdBy %><br>
+          <% if(locals.isAuthenticated) { %>
+          <p>Created By: <%= pug.createdBy.username %><br>
         </div>
 
         <button class="float-left"><a href="/pugs/<%= pug.id %>/edit">Edit</a></button>
@@ -20,7 +18,7 @@
           <input type="hidden" name="_method" value="DELETE">
           <button class="float-left">Delete</button>
         </form>
-
+        <% } %>
         <button class="float-left"><a href="/pugs">Back</button></a>
       </div>
 

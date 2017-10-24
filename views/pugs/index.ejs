@@ -7,9 +7,8 @@
             <div class="card-body">
               <a class="card-title" href="/pugs/<%= pug.id %>"><h4><%= pug.pugName %></h4></a>
                 <div class="card-text">
-                  <hr>
-                  <p><span class="bold text-uppercase">Created By:</span><%= hotel.createdBy.username %></p>
                 </div>
+
                   <% if(locals.isAuthenticated) { %>
                     <button class="float-left"><a href="/pugs/<%= pug.id %>/edit">Edit</a></button>
 

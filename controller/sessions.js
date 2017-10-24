@@ -15,7 +15,8 @@ function sessionsCreate(req, res, next) {
       req.session.isAuthenticated = true;
 
       req.user = user;
-      return res.redirect('/pugs').render('logged-in', {message: 'Hi ${user}!'});
+      req.flash('success', `Welcome back, ${user.username}!`);
+      res.redirect('/pugs');
     })
     .catch(next);
 }

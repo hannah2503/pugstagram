@@ -4,7 +4,7 @@
   <input type="hidden" name="_method" value="PUT">
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" name="pugName" id="name" placeholder="<%= pug.name %>" class="form-control" value="<%= pug.name %>">
+    <input type="text" name="pugName" id="name" placeholder="<%= pug.pugName %>" class="form-control" value="<%= pug.name %>">
   </div>
   <div class="form-group">
     <label for="pugAge">Age</label>
@@ -16,7 +16,7 @@
   </div>
   <div class="form-group">
     <label for="costume">Costume</label>
-    <select name="costumes" id="costume" class="form-control select2">
+    <select name="costumes" id="costume" class="form-control select2" placeholder="<%= costume %>">
       <% costumes.forEach((costume) => { %>
         <option <% if(costumes === costume) { %>selected<% } %>><%= costume %></option>
         <% }) %>
