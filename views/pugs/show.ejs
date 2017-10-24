@@ -9,7 +9,7 @@
           <p>Costume: <%= pug.costumes %></p>
           <p>Description: <%= pug.pugDescription %></p><br>
           <% if(locals.isAuthenticated) { %>
-          <p>Created By: <%= pug.createdBy.username %><br>
+          <p>Created By: <%= pug.createdBy.username%><br>
         </div>
 
         <button class="float-left"><a href="/pugs/<%= pug.id %>/edit">Edit</a></button>

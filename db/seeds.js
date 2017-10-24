@@ -34,13 +34,15 @@ User
         pugName: 'Frank',
         pugAge: '2',
         costumes: 'Superhero',
-        pugDescription: 'Frank likes to eat pork scratchings and dress as batman.'
+        pugDescription: 'Frank likes to eat pork scratchings and dress as batman.',
+        createdBy: users[0]
       },{
         pugImages: 'https://pbs.twimg.com/media/BZingt-IMAA5rpC.jpg',
         pugName: 'Peggy',
         pugAge: '4',
         costumes: 'Princess',
-        pugDescription: 'Peggy is a princess who likes to wear a crown'
+        pugDescription: 'Peggy is a princess who likes to wear a crown',
+        createdBy: users[0]
       }])
       .then((pugs) => {
         console.log(pugs);

@@ -15,6 +15,8 @@ const costumes = [
 function pugsIndex(req, res, next) {
   Pug
     .find()
+    .populate('createdBy')
+    .exec()
     .then((pugs) => res.render('pugs/index', { pugs }))
     .catch(next);
 }
