@@ -4,12 +4,18 @@ const costumes = [
   'Seasonal',
   'Superhero',
   'Princess',
-  'Animal'
+  'Animal',
+  'Artist',
+  'Film',
+  'Sports',
+  'Cute',
+  'Random'
 ];
 
 function pugsIndex(req, res, next) {
   Pug
     .find()
+    .populate('createdBy')
     .then((pugs) => res.render('pugs/index', { pugs }))
     .catch(next);
 }
@@ -19,15 +25,17 @@ function pugsNew(req, res) {
 }
 
 function pugsCreate(req, res, next) {
+  req.body.createdBy = req.user;
   Pug
     .create(req.body)
-    .then((pug) => res.redirect('pugs/show', { pug, costumes }))
+    .then(() => res.redirect('/pugs'))
     .catch(next);
 }
 
 function pugsShow(req, res, next) {
   Pug
     .findById(req.params.id)
+    .populate('createdBy')
     .exec()
     .then((pug) => {
       if(!pug) return res.status(404).render('statics/404');

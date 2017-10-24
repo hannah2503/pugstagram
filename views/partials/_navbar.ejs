@@ -1,37 +1,37 @@
 <nav class="navbar navbar-expand-lg justify-content-between">
 
   <a class="nav-link" href="/">HOME</a>
-  <ul class="navbar-nav">
+  <ul class="nav nav-tabs">
 
     <li class="nav-item">
-      <a class="nav-link" href="/pugs">All The Pugs</a>
+      <a class="nav-link" href="/pugs">All The Pugs &#x2606;</a>
     </li>
 
     <% if(!locals.isAuthenticated) { %>
 
     <li class="nav-item">
-      <a class="nav-link" href="/register">Register</a>
+      <a class="nav-link" href="/register">Register &#x2606;</a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="/login">Login</a>
+      <a class="nav-link" href="/login">Login &#x2606;</a>
     </li>
 
     <% } else { %>
 
 
     <li class="nav-item">
-      <a class="nav-link" href="/pugs/new">Add a Pug</a>
+      <a class="nav-link" href="/pugs/new">Add a Pug &#x2606;</a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="/logout">Logout</a>
+      <a class="nav-link" href="/logout">Logout &#x2606;</a>
     </li>
 
     <% } %>
 
   </ul>
 
-  <div class="d-inline">PUGSTAGRAM &hearts;</div>
+  <div class="d-inline pugstagram">PUGSTAGRAM &#x2606;</div>
 
 </nav>

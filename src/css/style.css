@@ -1,3 +1,18 @@
 body {
   background: #F4F3EE;
+  color: #463F3A;
+  font-family: 'Tenor Sans', sans-serif;
+}
+
+.img-size {
+  max-height: 500px;
+}
+
+nav, footer {
+  background: #BCB8B1;
+}
+
+a {
+  color: #463F3A;
+  text-decoration: none;
 }

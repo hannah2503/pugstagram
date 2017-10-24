@@ -11,22 +11,22 @@ const secureRoute = require('../lib/secureRoute');
 router.route('/')
   .get(statics.home);
 
-// all the pugs
+// all the pugs listed
 router.route('/pugs')
   .get(pugs.index)
-  .post(pugs.create);
+  .post(secureRoute, pugs.create);
 
-// add new pugs
+// add new pugs form
 router.route('/pugs/new')
   .get(secureRoute, pugs.new);
 
-//pug delete
+//pug delete action
 router.route('/pugs/:id')
   .get(pugs.show)
   .put(secureRoute, pugs.update)
   .delete(secureRoute,pugs.delete);
 
-//edit pugs
+//edit form
 router.route('/pugs/:id/edit')
   .get(secureRoute, pugs.edit);
 
@@ -40,7 +40,7 @@ router.route('/login')
   .get(session.new)
   .post(session.create);
 
-//logout
+//logout action
 router.route('/logout')
   .get(session.delete);
 

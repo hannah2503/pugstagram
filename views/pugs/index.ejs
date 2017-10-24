@@ -1,20 +1,27 @@
 <div class="container">
-  <div class="row">
+  <div class="wrapper">
+    <div class="row">
       <% pugs.forEach((pug) => { %>
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top img-thumbnail img-size" src="<%= pug.pugImages %>" alt="Pug In Costume">
-        <div class="card-body">
-          <a class="card-title" href="/pugs/<%= pug.id %>"><h4><%= pug.pugName %></h4></a>
-          <div class="card-text">
-            <p>
-            Age: <%= pug.pugAge %><br>
-            Costume: <%= pug.costumes %><br>
-            Description: <%= pug.pugDescription %><br>
-            Created By: <%= pug.createdBy %><br>
-            </p>
-          </div>
+        <div class="card img-thumbnail " style="width: 22rem;">
+          <img class="card-img-top" src="<%= pug.pugImages %>" alt="Pug In Costume">
+            <div class="card-body">
+              <a class="card-title" href="/pugs/<%= pug.id %>"><h4><%= pug.pugName %></h4></a>
+                <div class="card-text">
+                  <hr>
+                  <p><span class="bold text-uppercase">Created By:</span><%= hotel.createdBy.username %></p>
+                </div>
+                  <% if(locals.isAuthenticated) { %>
+                    <button class="float-left"><a href="/pugs/<%= pug.id %>/edit">Edit</a></button>
+
+                    <form method="POST" action="/pugs/<%= pug.id %>">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button class="float-left">Delete</button>
+                    </form>
+                  <% } %>
+            </div>
         </div>
-      </div>
+
       <% }) %>
+    </div>
   </div>
 </div>

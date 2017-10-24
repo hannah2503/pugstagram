@@ -1,7 +1,10 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="card" style="width: 20rem;">
-      <img class="card-img-top img-thumbnail" src="<%= pug.pugImages %>" alt="Card image cap">
+
+    <div class="card pug img-thumbnail" style="width: 20rem;">
+
+      <img class="card-img-top" src="<%= pug.pugImages %>" alt="Card image cap">
+
       <div class="card-body">
         <h1 class="card-title"><%= pug.pugName %></h1>
         <div class="card-text">
@@ -9,16 +12,19 @@
           <p>Costume: <%= pug.costumes %></p>
           <p>Description: <%= pug.pugDescription %></p><br>
           <p>Created By: <%= pug.createdBy %><br>
-          </div>
-
-          <button class="float-left"><a href="/pugs/<%= pug.id %>/edit">Edit</a></button>
-
-          <form method="POST" action="/pugs/<%= pug.id %>">
-            <input type="hidden" name="_method" value="DELETE">
-            <button class="float-left">Delete</button>
-          </form>
-
         </div>
+
+        <button class="float-left"><a href="/pugs/<%= pug.id %>/edit">Edit</a></button>
+
+        <form method="POST" action="/pugs/<%= pug.id %>">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="float-left">Delete</button>
+        </form>
+
+        <button class="float-left"><a href="/pugs">Back</button></a>
       </div>
+
     </div>
+
+  </div>
 </div>
