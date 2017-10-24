@@ -1,18 +1,24 @@
-<h1>SHOW THE PUGS </h1>
+<div class="container">
+  <div class="row">
+    <div class="card" style="width: 20rem;">
+      <img class="card-img-top img-thumbnail" src="<%= pug.pugImages %>" alt="Card image cap">
+      <div class="card-body">
+        <h1 class="card-title"><%= pug.pugName %></h1>
+        <div class="card-text">
+          <p>Age: <%= pug.pugAge %></p>
+          <p>Costume: <%= pug.costumes %></p>
+          <p>Description: <%= pug.pugDescription %></p><br>
+          <p>Created By: <%= pug.createdBy %><br>
+          </div>
 
-<h1><%= pug.pugName %></h1>
+          <button class="float-left"><a href="/pugs/<%= pug.id %>/edit">Edit</a></button>
 
-<img src="<%= pug.pugImages %>">
-<p>Age: <%= pug.pugAge %></p>
-<p>Costume: <%= pug.costumes %></p>
-<p>Description: <%= pug.pugDescription %></p><br>
-<p>Created By: <%= pug.createdBy %><br>
+          <form method="POST" action="/pugs/<%= pug.id %>">
+            <input type="hidden" name="_method" value="DELETE">
+            <button class="float-left">Delete</button>
+          </form>
 
-
-
-<a href="/pugs/<%= pug.id %>/edit">Edit</a>
-
-<form method="POST" action="/pugs/<%= pug.id %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <button>Delete</button>
-</form>
+        </div>
+      </div>
+    </div>
+</div>

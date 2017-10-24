@@ -1,13 +1,25 @@
-<h1>All The Pugs</h1>
 
-<a href="/pugs/new">Add Pug</a><br>
 
-<% pugs.forEach((pug) => { %>
-  <img src="<%= pug.pugImages %>">
-  <a href="/pugs/<%= pug.id %>"><h2><%= pug.pugName %></h2></a>
-  <p>Age: <%= pug.pugAge %></p>
-  <p>Costume: <%= pug.costumes %></p>
-  <p>Description: <%= pug.pugDescription %></p><br>
-  <p>Created By: <%= pug.createdBy %><br>
+<div class="container-fluid">
+  <div class="row">
+      <% pugs.forEach((pug) => { %>
+      <div class="card" style="width: 20rem;">
+        <img class="card-img-top img-thumbnail img-size" src="<%= pug.pugImages %>" alt="Pug In Costume">
+        <div class="card-body">
+          <a class="card-title" href="/pugs/<%= pug.id %>"><h4><%= pug.pugName %></h4></a>
+          <div class="card-text">
+            <p>
+            Age: <%= pug.pugAge %><br>
+            Costume: <%= pug.costumes %><br>
+            Description: <%= pug.pugDescription %><br>
+            Created By: <%= pug.createdBy %><br>
+            </p>
+          </div>
+        </div>
+      </div>
 
-<% }) %>
+      <% }) %>
+
+    </div>
+  </div>
+</div>
