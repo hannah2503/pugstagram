@@ -24,7 +24,7 @@ router.route('/pugs/new')
 router.route('/pugs/:id')
   .get(pugs.show)
   .put(secureRoute, pugs.update)
-  .delete(secureRoute,pugs.delete);
+  .delete(secureRoute, pugs.delete);
 
 //edit form
 router.route('/pugs/:id/edit')

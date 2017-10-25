@@ -12,8 +12,6 @@
           <% if(locals.isAuthenticated) { %>
           <p>Created By: <%= pug.createdBy.username%><br>
 
-          <form method="POST" action="/pugs/<%= pug.id %>/favorite" class="favorite"></form>
-
           <button class="float-left"><a href="/pugs/<%= pug.id %>/edit">Edit</a></button>
 
           <form method="POST" action="/pugs/<%= pug.id %>">
@@ -21,7 +19,8 @@
           <button class="float-left">Delete</button>
           </form>
 
-          <button class="float-left"><a href="/pugs">Back</button></a>
+        <% } %>
+        <button class="float-left"><a href="/pugs">Back</button></a>
       </div>
     </div>
   </div>

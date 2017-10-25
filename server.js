@@ -44,8 +44,9 @@ app.use(flash());
 
 app.use(customResponses);
 app.use(authentication);
-app.use(routes);
 app.use(errorHandler);
+app.use(routes);
+
 
 //listen to port
 app.listen(port, () => console.log(`Express is listening on port ${port}`));

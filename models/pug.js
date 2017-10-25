@@ -6,8 +6,7 @@ const pugSchema = new mongoose.Schema({
   pugAge: String,
   costumes: String,
   pugDescription: String,
-  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
-  user: { type: mongoose.Schema.ObjectId, ref: 'User' }
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 });
 
 pugSchema.methods.belongsTo = function belongsTo(user) {
@@ -15,9 +14,9 @@ pugSchema.methods.belongsTo = function belongsTo(user) {
   return user.id === this.createdBy.toString();
 };
 
-pugSchema.methods.isOwnedBy = function isOwnedBy(user) {
-  if(!user) return false;
-  return !!user.pugs.find(pug => pugs.id === this.id);
-};
+// pugSchema.methods.isOwnedBy = function isOwnedBy(user) {
+//   if(!user) return false;
+//   return !!user.pugs.find(pug => pugs.id === this.id);
+// };
 
 module.exports = mongoose.model('Pug', pugSchema);

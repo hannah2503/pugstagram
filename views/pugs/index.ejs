@@ -12,15 +12,7 @@
 
           <% if(locals.isAuthenticated) { %>
           <p><span class="bold text-uppercase">Created By: </span><%= pug.createdBy.username %></p>
-            <form method="POST" action="/pugs/<%= pug.id %>/favorite" class="favorite">
-              <button>
-                <% if(locals.currentUser.hasFavorited(pug)) { %>
-                  <i class="fa fa-heart"></i>
-                <% } else { %>
-                  <i class="fa fa-heart-o"></i>
-                <% } %>
-              </button>
-              </form>
+
             <% } %>
 
           </div>

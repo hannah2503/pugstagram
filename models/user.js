@@ -5,16 +5,16 @@ const userSchema = new mongoose.Schema({
   name: String,
   username: String,
   email: String,
-  password: { type: String, required: true },
-  favorites: [{ type: mongoose.Schema.ObjectId, ref: 'Pug' }]
+  password: { type: String, required: true }
+  // favorites: [{ type: mongoose.Schema.ObjectId, ref: 'Pug' }]
 });
 
-userSchema
-  .virtual('pugs', {
-    ref: 'Pug',
-    localField: '_id',
-    foreignField: 'user'
-  });
+// userSchema
+//   .virtual('pugs', {
+//     ref: 'Pug',
+//     localField: '_id',
+//     foreignField: 'user'
+//   });
 
 userSchema
   .virtual('passwordConfirmation')
@@ -37,11 +37,11 @@ userSchema.pre('save', function hashPassword(next) {
 userSchema.methods.validatePassword = function validatePassword(password) {
   return bcrypt.compareSync(password, this.password);
 };
-
-userSchema.methods.hasFavorited = function hasFavorited(pug) {
-  if(!pug) return false;
-  return !!this.favorites.find(_pug => pug.id === _pug.id);
-};
+// 
+// userSchema.methods.hasFavorited = function hasFavorited(pug) {
+//   if(!pug) return false;
+//   return !!this.favorites.find(_pug => pug.id === _pug.id);
+// };
 
 
 module.exports = mongoose.model('User', userSchema);
