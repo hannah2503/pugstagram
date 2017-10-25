@@ -1,13 +1,16 @@
-
+<div class="container">
 <form method="POST" action="/login">
-  <div>
-    <label for="email">Email</label>
-    <input type="text" name="email" id="email">
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input type="email" class="form-control"  name="email" id="email" aria-describedby="emailHelp" placeholder="Enter your Email Here">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
-  <div>
+  <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" name="password" id="password">
+    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
   </div>
-  <button class="button">Login</button>
+  <button class="btn btn-outline-dark">Login</button>
 </form>
-<button><a href="/pugs">Back</button></a>
+<br>
+  <a class="btn btn-info btn-sm" href="/pugs" role="button">BACK</a>
+</div>

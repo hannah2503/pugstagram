@@ -1,37 +1,38 @@
-<nav class="navbar navbar-expand-lg justify-content-between">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/">Home</a>
 
-  <a class="nav-link" href="/">HOME</a>
-  <ul class="nav nav-tabs">
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav nav-tabs mr-auto mt-2 mt-lg-0 ">
+      <li class="nav-item">
+        <a class="nav-link" href="/pugs">All The Pugs &#x2606;</a>
+      </li>
+      <% if(!locals.isAuthenticated) { %>
 
-    <li class="nav-item">
-      <a class="nav-link" href="/pugs">All The Pugs &#x2606;</a>
-    </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/register">Register &#x2606;</a>
+      </li>
 
-    <% if(!locals.isAuthenticated) { %>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login &#x2606;</a>
+      </li>
 
-    <li class="nav-item">
-      <a class="nav-link" href="/register">Register &#x2606;</a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link" href="/login">Login &#x2606;</a>
-    </li>
-
-    <% } else { %>
+      <% } else { %>
 
 
-    <li class="nav-item">
-      <a class="nav-link" href="/pugs/new">Add a Pug &#x2606;</a>
-    </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/pugs/new">Add a Pug &#x2606;</a>
+      </li>
 
-    <li class="nav-item">
-      <a class="nav-link" href="/logout">Logout &#x2606;</a>
-    </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout &#x2606;</a>
+      </li>
 
-    <% } %>
+      <% } %>
 
-  </ul>
+    </ul>
 
-  <div class="d-inline pugstagram">PUGSTAGRAM &#x2606;</div>
-
+  </div>
 </nav>

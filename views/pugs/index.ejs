@@ -1,23 +1,20 @@
 <div class="container">
-  <div class="wrapper">
-    <div class="row">
-      <% pugs.forEach((pug) => { %>
-        <div class="card img-thumbnail " style="width: 22rem;">
+  <div class="row">
+    <% pugs.forEach((pug) => { %>
+      <div class="col-md-6 col-lg-4 cardmargin">
+        <div class="card img-thumbnail ">
           <img class="card-img-top" src="<%= pug.pugImages %>" alt="Pug In Costume">
           <div class="card-body">
-            <a class="card-title" href="/pugs/<%= pug.id %>"><h4><%= pug.pugName %></h4></a>
+              <a class="card-title" href="/pugs/<%= pug.id %>"><h4><%= pug.pugName %></h4></a>
             <div class="card-text">
-            <hr>
-          </div>
-
-          <% if(locals.isAuthenticated) { %>
-          <p><span class="bold text-uppercase">Created By: </span><%= pug.createdBy.username %></p>
-
-            <% } %>
-
-          </div>
-        </div>
-      <% }) %>
+              <hr>
+              <% if(locals.isAuthenticated) { %>
+              <p><span class="bold text-uppercase">Created By: </span><%= pug.createdBy.username %></p>
+              <% } %>
             </div>
           </div>
         </div>
+      </div>
+    <% }) %>
+  </div>
+</div>

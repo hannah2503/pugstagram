@@ -1,26 +1,28 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="card pug img-thumbnail" style="width: 20rem;">
-      <img class="card-img-top" src="<%= pug.pugImages %>" alt="Card image cap">
-      <div class="card-body">
-        <h1 class="card-title"><%= pug.pugName %></h1>
-        <div class="card-text">
-          <p>Age: <%= pug.pugAge %></p>
-          <p>Costume: <%= pug.costumes %></p>
-          <p>Description: <%= pug.pugDescription %></p><br>
-        </div>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card img-thumbnail">
+        <img class="card-img-top" src="<%= pug.pugImages %>" alt="Pug!">
+        <div class="card-body">
+          <h1 class="card-title"><%= pug.pugName %></h1>
+          <div class="card-text">
+            <p>Age: <%= pug.pugAge %></p>
+            <p>Costume: <%= pug.costumes %></p>
+            <p>Description: <%= pug.pugDescription %></p><br>
+          </div>
+          <hr>
           <% if(locals.isAuthenticated) { %>
-          <p>Created By: <%= pug.createdBy.username%><br>
-
-          <button class="float-left"><a href="/pugs/<%= pug.id %>/edit">Edit</a></button>
-
-          <form method="POST" action="/pugs/<%= pug.id %>">
+          <p>Created By: <%= pug.createdBy.username%>
+        </div>
+        <a class="btn btn-outline-dark btn-lg" href="/pugs/<%= pug.id %>/edit" role="button">EDIT</a>
+        <br>
+        <form method="POST" action="/pugs/<%= pug.id %>">
           <input type="hidden" name="_method" value="DELETE">
-          <button class="float-left">Delete</button>
-          </form>
-
+          <button class="btn btn-outline-dark btn-lg button">DELETE</button>
+        </form>
         <% } %>
-        <button class="float-left"><a href="/pugs">Back</button></a>
+        <br>
+        <a class="btn btn-info btn-lg" href="/pugs" role="button">BACK</a>
       </div>
     </div>
   </div>

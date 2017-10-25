@@ -7,6 +7,7 @@ const costumes = [
   'Animal',
   'Artist',
   'Film',
+  'Music',
   'Sports',
   'Cute',
   'Random'
