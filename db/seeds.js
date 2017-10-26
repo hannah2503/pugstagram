@@ -13,13 +13,13 @@ Pug.collection.drop();
 User
   .create([{
     name: 'Hannah',
-    username: 'Hanarami',
-    email: 'h@hannah.com',
+    username: 'Hannah',
+    email: 'h@h.com',
     password: 'password',
     passwordConfirmation: 'password'
   },{
     name: 'Xavier',
-    username: 'xman',
+    username: 'Xavier',
     email: 'xavier@xman.com',
     password: 'password',
     passwordConfirmation: 'password'
@@ -37,11 +37,32 @@ User
         pugDescription: 'Frank likes to eat pork scratchings and dress as batman.',
         createdBy: users[0]
       },{
-        pugImages: 'https://pbs.twimg.com/media/BZingt-IMAA5rpC.jpg',
+        pugImages: 'https://i.pinimg.com/736x/46/13/27/46132796c0a17810fba066c75e703482--pug-dogs-doggies.jpg',
         pugName: 'Peggy',
         pugAge: '4',
         costumes: 'Princess',
         pugDescription: 'Peggy is a princess who likes to wear a crown',
+        createdBy: users[0]
+      },{
+        pugImages: 'http://data.whicdn.com/images/78391390/large.jpg',
+        pugName: 'Snoop',
+        pugAge: '3',
+        costumes: 'Music',
+        pugDescription: 'He likes tasty treats and tasty beats',
+        createdBy: users[0]
+      }, {
+        pugImages: 'http://i.telegraph.co.uk/multimedia/archive/03496/Pug-sweetTooth2_3496753k.jpg',
+        pugName: 'Doug',
+        pugAge: '2',
+        costumes: 'Food',
+        pugDescription: 'Doug can\'t get enough of donuts!',
+        createdBy: users[0]
+      }, {
+        pugImages: 'https://i.pinimg.com/736x/0c/17/d7/0c17d799ed71f17509666d6788d42a24--pug-halloween-costumes-dog-costumes.jpg',
+        pugName: 'Leo',
+        pugAge: '1',
+        costumes: 'Animal',
+        pugDescription: 'Leo likes to let out his wild-side when he is out with his family',
         createdBy: users[0]
       }])
       .then((pugs) => {

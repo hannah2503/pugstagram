@@ -14,15 +14,21 @@
           <% if(locals.isAuthenticated) { %>
           <p>Created By: <%= pug.createdBy.username%>
         </div>
+        <div class="buttonform">
         <a class="btn btn-outline-dark btn-lg" href="/pugs/<%= pug.id %>/edit" role="button">EDIT</a>
+        </div>
         <br>
         <form method="POST" action="/pugs/<%= pug.id %>">
           <input type="hidden" name="_method" value="DELETE">
-          <button class="btn btn-outline-dark btn-lg button">DELETE</button>
+          <div class="buttonform">
+          <button class="btn btn-outline-dark btn-lg">DELETE</button>
+          </div>
         </form>
         <% } %>
         <br>
+        <div class="buttonform">
         <a class="btn btn-info btn-lg" href="/pugs" role="button">BACK</a>
+      </div>
       </div>
     </div>
   </div>

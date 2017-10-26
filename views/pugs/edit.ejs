@@ -1,32 +1,52 @@
-<h1>Edit This Pug Post</h1>
+<div class="container">
+  <h1>Edit This Pug Post</h1>
+  <div class="row">
+    <div class="col-md-6 col-sm-4">
 
-<form method="POST" action="/pugs/<%= pug.id %>">
-  <input type="hidden" name="_method" value="PUT">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" name="pugName" id="name" value="<%= pug.pugName %>" class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="pugAge">Age</label>
-    <input type="text" name="age" id="age" class="form-control" value="<%= pug.pugAge %>">
-  </div>
-  <div class="form-group">
-    <label for="description">Description</label>
-    <textarea name="pugDescription" id="description" class="form-control"><%= pug.pugDescription %></textarea>
-  </div>
-  <div class="form-group">
-    <label for="costume">Costume Type</label>
-    <select name="costumes" id="costume" class="form-control select2" placeholder="<%= pug.costumes %>">
-      <% costumes.forEach((costume) => { %>
-        <option <% if(costumes === costume) { %>selected<% } %>><%= costume %></option>
-        <% }) %>
-      </select>
     </div>
+  </div>
+  <form method="POST" action="/pugs/<%= pug.id %>">
+    <input type="hidden" name="_method" value="PUT">
+
     <div class="form-group">
-      <label>Images</label>
-      <input type="text" name="pugImages" class="form-control" placeholder="<%= pug.pugImages %>" value="<%= pug.pugImages %>">
+      <label for="name">Name</label>
+      <input type="text" name="pugName" id="name" value="<%= pug.pugName %>" class="form-control">
     </div>
-    <button class="float-left">Update</button>
+
+    <div class="form-group">
+      <label for="pugAge">Age</label>
+      <input type="text" name="age" id="age" class="form-control" value="<%= pug.pugAge %>">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea name="pugDescription" id="description" class="form-control"><%= pug.pugDescription %></textarea>
+    </div
+
+    <div class="form-group">
+      <label for="costume">Costume Type</label>
+        <select name="costumes" id="costume" class="form-control select2" placeholder="<%= pug.costumes %>">
+        <% costumes.forEach((costume) => { %>
+          <option <% if(costumes === costume) { %>selected<% } %>><%= costume %></option>
+          <% }) %>
+        </select>
+    </div>
+
+      <div class="form-group">
+        <label>Images</label>
+        <input type="text" name="pugImages" class="form-control" value="<%= pug.pugImages %>">
+      </div>
+
+      <div class="buttonform">
+      <button class="btn btn-outline-dark btn-lg">UPDATE</button>
+      </div>
+
   </form>
 
-<button class="float-left"><a href="/pugs">Back</button></a>
+    <br>
+
+    <div class="buttonform">
+    <a class="btn btn-info btn-lg" href="/pugs" role="button">BACK</a>
+    </div>
+
+</div>
