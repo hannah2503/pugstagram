@@ -23,3 +23,6 @@ I was very pleased when I was able to successfully log in and out of the website
 ##Styling
 I enjoyed the styling process a lot, however as with most of the work during the course so far I have found that I never have enough time to style a site as I would like to. I am still learning how to write clean and efficient CSS - I continue to aim to keep the mark-up as simple as possible whilst still producing a strong and effective layout. 
 
+#Screenshots 
+
+TBC...
