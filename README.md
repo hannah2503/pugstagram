@@ -1,3 +1,5 @@
+<img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png">
+
 <h1>WDI PROJECT 2</h1>
 
 For my second project, the brief was to create an app using MongoDB, Express and Node.js which had secure authentication as a key feature.
